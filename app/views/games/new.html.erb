@@ -1,0 +1,24 @@
+<div class="container" id="container-new">
+    <h1>New game baby</h1>
+    <%# display the letters %>
+    <ul>
+        <% @letters.each do |letter| %>
+        <li class="mx-1"><%= letter %></li>
+        <% end %>
+    </ul>
+
+    <form action="/score" class="form-group mt-5" method="post">
+        <input type="text" name="input" id="input">
+        <input type="submit">
+        <input id="tags_list" name="tags_list" type="hidden" />
+        <%= hidden_field_tag :letters, @letters %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+
+    <div>
+        <%= link_to "Play again!", "new" %>
+    </div>
+
+</div>
+
+
